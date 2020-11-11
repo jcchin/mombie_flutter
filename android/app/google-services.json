@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "494868630862",
+    "firebase_url": "https://mombie0.firebaseio.com",
+    "project_id": "mombie0",
+    "storage_bucket": "mombie0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494868630862:android:e4a28a966509db5b02a21f",
+        "android_client_info": {
+          "package_name": "com.example.mombie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494868630862-qf7epl4r7567mhjtmk1g2nusfu12v992.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mombie",
+            "certificate_hash": "90b84729b9127f9c74b32a223c1e3b8e3969134b"
+          }
+        },
+        {
+          "client_id": "494868630862-r8vdss05fkjmakut3q6h5his0gppsoh0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALB_f0zZB9zxf89Y2f1tvc_oJffFmClMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494868630862-r8vdss05fkjmakut3q6h5his0gppsoh0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
