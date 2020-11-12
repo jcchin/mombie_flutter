@@ -2,7 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:mombie/alarm.dart';
+import 'package:mombie/scheduler.dart';
+import 'package:mombie/wake.dart';
 
 
 import 'home.dart';
@@ -24,6 +26,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: IntroScreen(),
+      routes: {
+        '/alarm': (context) => Alarm(),
+        '/wake': (context) => Wake(),
+        '/scheduler':(context) => Scheduler(),
+      },
     );
   }
 }

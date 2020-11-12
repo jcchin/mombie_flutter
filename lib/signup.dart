@@ -51,7 +51,7 @@ class SignUp extends StatelessWidget {
                 padding: EdgeInsets.all(10.0),
                 child: SignInButton(
                   Buttons.Google,
-                  text: "Sign up with Google",
+                  text: "Sign up / Log In with Google",
                   onPressed: () {
                     signInWithGoogle().then((result) {
                       if (result != null) {

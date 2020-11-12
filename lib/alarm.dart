@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mombie/home.dart';
 
 import 'signup.dart';
 
-class Home extends StatelessWidget {
-  Home({this.uid});
+class Alarm extends StatelessWidget {
+  Alarm({this.uid});
   final String uid;
   final String title = "Home";
 
@@ -19,9 +19,7 @@ class Home extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _buildButtonColumn(context, color, Icons.bedtime,Icons.hotel, 'PREVENT SLEEP', '/wake'),
-          _buildButtonColumn(context, color, Icons.access_alarm,Icons.add_alert_outlined, 'SET ALARM','/alarm'),
-          _buildButtonColumn(context, color, Icons.date_range,Icons.food_bank_outlined, 'RECORD FEEDING/DIAPER','/scheduler'),
+          _buildButtonColumn(color, Icons.access_alarm,Icons.add_alert_outlined, 'SET ALARM'),
         ],
       ),
     );
@@ -62,20 +60,33 @@ class Home extends StatelessWidget {
   }
 
 
-  Column _buildButtonColumn(BuildContext context, Color color, IconData icon, IconData icon2, String label, String route) {
+  Column _buildButtonColumn(Color color, IconData icon, IconData icon2, String label) {
     return Column(
 
-      mainAxisSize: MainAxisSize.max,
+      mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ElevatedButton.icon(
-          icon: Icon(icon, color: CupertinoColors.white, size:30),
-          label: Text(label, style: TextStyle(fontSize: 20)),
-          onPressed: () {
-            Navigator.pushNamed(
-              context, route
-            );
-          },
+        Container(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+            Icon(icon, color: color),
+            Icon(icon2, color: color),
+            ],
+          ),
+        ),
+
+        Container(
+          margin: const EdgeInsets.only(top: 8),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w400,
+              color: color,
+            ),
+          ),
         ),
       ],
     );
