@@ -35,23 +35,12 @@ class SignUp extends StatelessWidget {
                       fontSize: 30,
                       fontFamily: 'Roboto')),
             ),
-            Padding(
-                padding: EdgeInsets.all(10.0),
-                child: SignInButton(
-                  Buttons.Email,
-                  text: "Sign up with Email",
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => EmailSignUp()),
-                    );
-                  },
-                )),
+
             Padding(
                 padding: EdgeInsets.all(10.0),
                 child: SignInButton(
                   Buttons.Google,
-                  text: "Sign up / Log In with Google",
+                  text: "Log In with Google",
                   onPressed: () {
                     signInWithGoogle().then((result) {
                       if (result != null) {
@@ -66,7 +55,18 @@ class SignUp extends StatelessWidget {
                     });
                   },
                 )),
-
+            Padding(
+                padding: EdgeInsets.all(10.0),
+                child: SignInButton(
+                  Buttons.Email,
+                  text: "Sign up with Email",
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => EmailSignUp()),
+                    );
+                  },
+                )),
             Padding(
                 padding: EdgeInsets.all(10.0),
                 child: GestureDetector(

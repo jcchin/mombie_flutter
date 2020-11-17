@@ -73,7 +73,7 @@ class Home extends StatelessWidget {
           label: Text(label, style: TextStyle(fontSize: 20)),
           onPressed: () {
             Navigator.pushNamed(
-              context, route
+              context, route, arguments: this.uid
             );
           },
         ),
@@ -81,11 +81,6 @@ class Home extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
 
 class NavigateDrawer extends StatefulWidget {
   final String uid;
