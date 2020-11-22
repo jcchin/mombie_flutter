@@ -94,7 +94,7 @@ class _EmailLogInState extends State<EmailLogIn> {
       isLoading = false;
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Home(uid: result.user.uid)),
+        MaterialPageRoute(builder: (context) => Home2(uid: result.user.uid)),
       );
     }).catchError((err) {
       print(err.message);

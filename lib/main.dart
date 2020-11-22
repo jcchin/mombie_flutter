@@ -40,7 +40,7 @@ class IntroScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     User result = FirebaseAuth.instance.currentUser;
     return new SplashScreen(
-        navigateAfterSeconds: result != null ? Home(uid: result.uid) : SignUp(),
+        navigateAfterSeconds: result != null ? Home2(uid: result.uid) : SignUp(),
         seconds: 3,
         title: new Text(
           'Welcome To Mombie!',

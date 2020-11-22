@@ -2,13 +2,59 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_admob/firebase_admob.dart';
+import 'package:mombie/ad_manager.dart';
+
 
 import 'signup.dart';
 
-class Home extends StatelessWidget {
-  Home({this.uid});
+class Home2 extends StatefulWidget{
   final String uid;
-  final String title = "Home";
+  final String title = "Home2";
+
+  const Home2({Key key, this.uid}) : super(key: key);
+
+  @override
+  _Home2State createState() => _Home2State();
+}
+
+class _Home2State extends State<Home2>{
+  _Home2State();
+
+  BannerAd _bannerAd;
+
+  Future<void> _initAdMob() {
+    // TODO: Initialize AdMob SDK
+    return FirebaseAdMob.instance.initialize(appId: AdManager.appId);
+  }
+
+  void _loadBannerAd() {
+    _bannerAd
+      ..load()
+      ..show(anchorType: AnchorType.bottom);
+  }
+
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseAdMob.instance.initialize(appId: AdManager.appId);
+    // TODO: Initialize _bannerAd
+    _bannerAd = BannerAd(
+    adUnitId: AdManager.bannerAdUnitId,
+    size: AdSize.banner,
+    );
+
+    // TODO: Load a Banner Ad
+    _loadBannerAd();
+  }
+
+  @override
+  void dispose() {
+    // TODO: Dispose BannerAd object
+    _bannerAd?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +76,7 @@ class Home extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(title),
+          title: Text(widget.title),
           actions: <Widget>[
             IconButton(
               icon: Icon(
@@ -52,13 +98,13 @@ class Home extends StatelessWidget {
         body: ListView(
           children: [
             Image.asset('assets/images/logo_no_bg.png',
-            width:100,
-            height: 140,
-            fit: BoxFit.fill,
+              width:100,
+              height: 140,
+              fit: BoxFit.fill,
             ),
             buttonSection,],
         ),
-        drawer: NavigateDrawer(uid: this.uid));
+        drawer: NavigateDrawer(uid: widget.uid));
   }
 
 
@@ -73,7 +119,7 @@ class Home extends StatelessWidget {
           label: Text(label, style: TextStyle(fontSize: 20)),
           onPressed: () {
             Navigator.pushNamed(
-              context, route, arguments: this.uid
+                context, route, arguments: widget.uid
             );
           },
         ),
@@ -81,6 +127,8 @@ class Home extends StatelessWidget {
     );
   }
 }
+
+
 
 class NavigateDrawer extends StatefulWidget {
   final String uid;
@@ -137,7 +185,7 @@ class _NavigateDrawerState extends State<NavigateDrawer> {
               print(widget.uid);
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Home(uid: widget.uid)),
+                MaterialPageRoute(builder: (context) => Home2(uid: widget.uid)),
               );
             },
           ),

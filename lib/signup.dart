@@ -47,7 +47,7 @@ class SignUp extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) {
-                              return Home(uid: result.split(" ")[39].split(")")[0]);  // TODO: pass the uid correctly
+                              return Home2(uid: result.split(" ")[39].split(")")[0]);  // TODO: pass the uid correctly
                             },
                           ),
                         );
